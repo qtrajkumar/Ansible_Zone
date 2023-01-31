@@ -13,5 +13,6 @@
         url: https://referenceapplicationskhaja.s3.us-west-2.amazonaws.com/spring-petclinic-2.4.2.jar
         dest: /opt/spring-petclinic-2.4.2.jar
     - name: run the command directly
-      ansible.builtin.command: java -jar spring-petclinic-2.4.2.jar
-          
+      ansible.builtin.command:
+        cmd: java -jar spring-petclinic-2.4.2.jar
+        creates: /opt/spring-petclinic-2.4.2.jar   
