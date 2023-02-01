@@ -1,9 +1,6 @@
-[ubuntu]
-172.31.12.149 
-
-[centos]
-172.31.2.167  
-
-[appservers:vars]
 172.31.12.149 java_package_name=openjdk-11-jdkrs
 172.31.2.167  java_package_name=java-11-openjdk-devel
+
+[appservers:vars]
+172.31.12.149 
+172.31.2.167  
