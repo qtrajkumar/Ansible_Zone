@@ -1,0 +1,9 @@
+---
+- name: install the tomcat on both ubuntu and centos
+  hosts: appservers
+  become: yes 
+  tasks: 
+    - name: insall the java on both
+      ansible.builtin.package:
+        name: "{{ java_package_name }}"
+        state: present
