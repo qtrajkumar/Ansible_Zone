@@ -1,6 +1,6 @@
 ---
 - name: install the tomcat on both ubuntu and centos
-  hosts: appservers
+  hosts: all
   become: yes 
   tasks: 
     - name: insall the java on both
