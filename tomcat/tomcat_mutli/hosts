@@ -1,6 +1,7 @@
 [appservers]
 172.31.2.167  java_package_name=java-11-openjdk-devel
 172.31.12.149 java_package_name=openjdk-11-jdk
+localhost java_package_name=openjdk-11-jdk
 
 [appservers:vars]
 user_name=tomcat
