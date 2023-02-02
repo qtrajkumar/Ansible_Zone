@@ -19,11 +19,16 @@
         home: "{{ user_home }}"
         shell: "{{ user_shell }}"
         state: present
-    - name: "extract tomcat {{ tomcat_version }}"
+    - name: get the tomcat stats
+      ansible.builtin.stat:
+        path: "{{ user_home }}/latest/bin/startup.sh"
+      register: tomcat_startup      
+    - name: extract tomcat file 
       ansible.builtin.unarchive:
         src: "https://dlcdn.apache.org/tomcat/tomcat-{{ tomcat_major_version }}/v{{ tomcat_version }}/bin/apache-tomcat-{{ tomcat_version }}.tar.gz"
         remote_src: yes
         dest: "{{ user_home }}"
+      when: tomcat_startup.stat.exists == false  
     - name: link in the file
       ansible.builtin.file:
         src: "{{ user_home }}/apache-tomcat-{{ tomcat_version }}"
