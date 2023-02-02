@@ -55,9 +55,9 @@
         owner: "{{ user_name }}"
         group: "{{ group_name }}"
       when: ansible_facts['distribution'] == "CentOS"
-    - name: create systemd fiels
+    - name: enable and start the service
       ansible.builtin.systemd:
-        name: "{{ tomcat_service_name }}"
+        name: tomcat.service
         daemon_reload: true
         enabled: true
         state: restarted      
