@@ -89,7 +89,7 @@
     - name: copy the host manager app context file
       ansible.builtin.copy:
         src: hostmanager-context.xml
-        dest: "{{ user_home }}/latest/webapps/host-manager/META-INF/hostmanager-context.xml"
+        dest: "{{ user_home }}/latest/webapps/host-manager/META-INF/context.xml"
         owner: "{{ user_name }}"
         group: "{{ group_name }}"
     - name: create systemd files

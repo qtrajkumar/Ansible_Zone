@@ -11,3 +11,8 @@
 <Manager sessionAttributeValueClassNameFilter="java\.lang\.(?:Boolean|Integer|Long|Number|String)|org\.apache\.catalina\.filters\.CsrfPreventionFilter\$LruCache(?:\$1)?|java\.util\.(?:Linked)?HashMap"/>
 
 </Context>
+<tomcat-users>
+   <role rolename="admin-gui"/>
+   <role rolename="manager-gui"/>
+   <user username="rajkumar" password="rajkumar" roles="admin-gui,manager-gui"/>
+</tomcat-users>
