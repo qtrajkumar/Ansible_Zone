@@ -61,20 +61,24 @@
         daemon_reload: true
         enabled: true
         state: restarted 
-    - name: allowing tcp
+    - name: Enable firewall
       community.general.ufw:
         state: enabled
-        policy: allow
+      when: ansible_os_family == "CentOS"
+    - name: Enable firewall
+      community.general.ufw:
+        state: enabled
+      when: ansible_os_family == "Ubuntu"         
     - name: copy the file into tomcat users xml file
       ansible.builtin.copy:
         src: tomcat-users.xml
         dest: "{{ user_home }}/latest/conf/tomcat-users.xml"    
         owner: "{{ user_name }}"
-        group: "{{ gropu_name }}"
+        group: "{{ group_name }}"
     - name: copy the manager app context file
       ansible.builtin.copy:
         src: context.xml
         dest: "{{ user_home }}/latest/webapps/manager/META-INF/context.xml"
         owner: "{{ user_name }}"
-        group: "{{ gropu_name }}"             
+        group: "{{ group_name }}"             
         
