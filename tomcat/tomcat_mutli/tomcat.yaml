@@ -45,7 +45,7 @@
         state: directory
         mode: '0777'
     - name: shell file
-      ansible.builtin.command: "sudo sh -c 'chmod +x {{ user_home }}/latest/bin/*.sh'"    
+      ansible.builtin.command: "sudo sh -c 'chmod +x {{ user_home }}/latest/bin/*.sh'"   
       when: not tomcat_startup.stat.exists  
     - name: Create a systemd unit file in ubuntu
       ansible.builtin.copy:
