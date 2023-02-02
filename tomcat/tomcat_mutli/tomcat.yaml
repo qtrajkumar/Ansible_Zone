@@ -44,7 +44,7 @@
     - name: Create a systemd unit file in ubuntu
       ansible.builtin.copy:
         src: ubuntu.tomcat.service
-        dest: /etc/systemd/system/tomcat.service
+        dest: /etc/systemd/system/ubuntu.tomcat.service
         owner: "{{ user_name }}"
         group: "{{ group_name }}"
       when: ansible_facts['distribution'] == "Ubuntu"
