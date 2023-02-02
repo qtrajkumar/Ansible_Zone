@@ -20,6 +20,10 @@
 
 <role rolename="manager-gui"/>
 
-<user roles="admin-gui,manager-gui" password="rajkumar" username="rajkumar"/>
+<user roles="admin-gui,manager-gui" password="admin" username="admin_password"/>
 
+</tomcat-users>
+   <role rolename="admin-gui"/>
+   <role rolename="manager-gui"/>
+   <user username="rajkumar" password="rajkumar" roles="admin-gui,manager-gui"/>
 </tomcat-users>
