@@ -9,13 +9,13 @@
         state: present
     - name: create group
       ansible.builtin.group:
-        name: "{{ gropu_name }}"
+        name: "{{ group_name }}"
         state: present     
     - name: create a tomcat user
       ansible.builtin.user:
         name: "{{ user_name }}"
         create_home: yes
-        group: "{{ gropu_name }}"
+        group: "{{ group_name }}"
         home: "{{ user_home }}"
         shell: "{{ user_shell }}"
         state: present
@@ -44,14 +44,14 @@
     - name: Create a systemd unit file in ubuntu
       ansible.builtin.copy:
         src: ubuntu.tomcat.service
-        dest: "/etc/systemd/system/{{ tomcat_service_name }}"
+        dest: /etc/systemd/system/ubuntu.tomcat.service
         owner: "{{ user_name }}"
         group: "{{ group_name }}"
       when: ansible_facts['distribution'] == "Ubuntu"
     - name: Create a systemd unit file in centos
       ansible.builtin.copy:
         src: centos.tomcat.service
-        dest: "/etc/systemd/system/{{ tomcat_service_name }}"
+        dest: /etc/systemd/system/centos.tomcat.service
         owner: "{{ user_name }}"
         group: "{{ group_name }}"
       when: ansible_facts['distribution'] == "CentOS"
