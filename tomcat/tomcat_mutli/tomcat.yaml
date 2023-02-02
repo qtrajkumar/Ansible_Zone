@@ -36,14 +36,13 @@
         owner: "{{ user_name }}"
         state: link
         mode: '0777'
-    - name: chown
+    - name: chown permissions
       ansible.builtin.file:
         dest: "{{ user_home }}"
         recurse: true
         group: "{{ group_name }}"
         owner: "{{ user_name }}"
         state: directory
-        mode: '0777'
     - name: shell file
       ansible.builtin.command: "sudo sh -c 'chmod +x {{ user_home }}/latest/bin/*.sh'"   
       when: not tomcat_startup.stat.exists  
