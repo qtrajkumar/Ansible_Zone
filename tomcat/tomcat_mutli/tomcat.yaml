@@ -60,5 +60,21 @@
         name: "{{ tomcat_service_name }}"
         daemon_reload: true
         enabled: true
-        state: restarted      
+        state: restarted 
+    - name: allowing tcp
+      community.general.ufw:
+        state: enabled
+        policy: allow
+    - name: copy the file into tomcat users xml file
+      ansible.builtin.copy:
+        src: tomcat-users.xml
+        dest: "{{ user_home }}/latest/conf/tomcat-users.xml"    
+        owner: "{{ user_name }}"
+        group: "{{ gropu_name }}"
+    - name: copy the manager app context file
+      ansible.builtin.copy:
+        src: context.xml
+        dest: "{{ user_home }}/latest/webapps/manager/META-INF/context.xml"
+        owner: "{{ user_name }}"
+        group: "{{ gropu_name }}"             
         
