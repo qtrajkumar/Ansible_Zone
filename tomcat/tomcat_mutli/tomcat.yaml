@@ -35,7 +35,7 @@
       ansible.builtin.file:
         dest: "{{ user_home }}"
         recurse: true
-        group: "{{ gropu_name }}"
+        group: "{{ group_name }}"
         owner: "{{ user_name }}"
         state: directory
         mode: '0777'
