@@ -80,5 +80,17 @@
         src: context.xml
         dest: "{{ user_home }}/latest/webapps/manager/META-INF/context.xml"
         owner: "{{ user_name }}"
-        group: "{{ group_name }}"             
+        group: "{{ group_name }}"
+    - name: copy the host manager app context file
+      ansible.builtin.copy:
+        src: context.xml
+        dest: "{{ user_home }}/latest/webapps/host-manager/META-INF/context.xml"
+        owner: "{{ user_name }}"
+        group: "{{ gropu_name }}"
+    - name: create systemd files
+      ansible.builtin.systemd:
+        name: "{{ tomcat_service_name }}"
+        daemon_reload: true
+        enabled: true
+        state: restarted                   
         
