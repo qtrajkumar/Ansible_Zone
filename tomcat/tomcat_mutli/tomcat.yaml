@@ -28,7 +28,7 @@
         src: "https://dlcdn.apache.org/tomcat/tomcat-{{ tomcat_major_version }}/v{{ tomcat_version }}/bin/apache-tomcat-{{ tomcat_version }}.tar.gz"
         remote_src: yes
         dest: "{{ user_home }}"
-      when: tomcat_startup.stat.exists == false  
+      when: not tomcat_startup.stat.exists   
     - name: link in the file
       ansible.builtin.file:
         src: "{{ user_home }}/apache-tomcat-{{ tomcat_version }}"
@@ -46,6 +46,7 @@
         mode: '0777'
     - name: shell file
       ansible.builtin.command: "sudo sh -c 'chmod +x {{ user_home }}/latest/bin/*.sh'"    
+      when: not tomcat_startup.stat.exists  
     - name: Create a systemd unit file in ubuntu
       ansible.builtin.copy:
         src: ubuntu.tomcat.service
