@@ -85,7 +85,7 @@
         dest: "{{ user_home }}/latest/webapps/host-manager/META-INF/hostmanager-context.xml"
         owner: "{{ user_name }}"
         group: "{{ gropu_name }}"
-    - name: create systemd fiels
+    - name: create systemd files
       ansible.builtin.systemd:
         name: "{{ tomcat_service_name }}"
         daemon_reload: true
