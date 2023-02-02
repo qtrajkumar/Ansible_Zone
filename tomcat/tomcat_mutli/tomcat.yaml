@@ -44,14 +44,14 @@
     - name: Create a systemd unit file in ubuntu
       ansible.builtin.copy:
         src: ubuntu.tomcat.service
-        dest: /etc/systemd/system/ubuntu.tomcat.service
+        dest: /etc/systemd/system/tomcat.service
         owner: "{{ user_name }}"
         group: "{{ group_name }}"
       when: ansible_facts['distribution'] == "Ubuntu"
     - name: Create a systemd unit file in centos
       ansible.builtin.copy:
         src: centos.tomcat.service
-        dest: /etc/systemd/system/centos.tomcat.service
+        dest: /etc/systemd/system/tomcat.service
         owner: "{{ user_name }}"
         group: "{{ group_name }}"
       when: ansible_facts['distribution'] == "CentOS"
