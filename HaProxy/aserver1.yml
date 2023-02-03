@@ -2,7 +2,30 @@
 - name: installation apache2
   hosts: all
   become: yes
+  become_user: root
   tasks:
+    - name: Modify SSH configuration
+      ansible.builtin.lineinfile:
+        dest: /etc/ssh/sshd_config
+        state: present
+        regexp: '^PasswordAuthentication'
+        line: 'PasswordAuthentication yes'
+    - name: Restart ssh service
+      ansible.builtin.service:
+        name: ssh
+        state: restarted
+    - name: Create new user account
+      ansible.builtin.user:
+        name: raj
+        password: rajkumar@123
+        state: present
+        groups: sudo
+        shell: /bin/bash
+    - name: Add user to sudoers
+      ansible.builtin.lineinfile:
+        dest: /etc/sudoers
+        state: present
+        line: "raj ALL=(ALL) NOPASSWD:ALL"
     - name: apache2 install
       ansible.builtin.apt:
         name: apache2
