@@ -5,9 +5,10 @@ Install HAProxy on Ubuntu 20.04
 These steps are for the 3 instances
 -----------------------------------
 * we need to create 3 ubuntu 20.04 instances
-
+  ![preview](Images/haproxy1.png)
 * And ensure the sudo permissions are given or not
-* Then the PasswordAuthentication can be changed `no to yes` 
+* Then the PasswordAuthentication can be changed `no to yes`
+   
 * and restart the sshd service
 * after that we need to adduser <username>
 * we have to given permission to user
