@@ -2,22 +2,30 @@
 - name: install haproxy on ubuntu
   hosts: all
   become: yes
+  become_user: root
   tasks:
-    - name: create a user with name raj
+    - name: Modify SSH configuration
+      ansible.builtin.lineinfile:
+        dest: /etc/ssh/sshd_config
+        state: present
+        regexp: '^PasswordAuthentication'
+        line: 'PasswordAuthentication yes'
+    - name: Restart ssh service
+      ansible.builtin.service:
+        name: ssh
+        state: restarted
+    - name: Create new user account
       ansible.builtin.user:
         name: raj
-        password: rajkumar
-        generate_ssh_key: yes
-        ssh_key_file: .ssh/id_rsa.pub
-        state: present 
-    - name: add user to sudoers file
-      community.general.sudoers:
-        name: raj
-        user: raj
-        sudoers_path: /etc/sudoers
-        commands: ALL
-        nopassword: true
-        state: present          
+        password: rajkumar@123
+        state: present
+        groups: sudo
+        shell: /bin/bash
+    - name: Add user to sudoers
+      ansible.builtin.lineinfile:
+        dest: /etc/sudoers
+        state: present
+        line: "raj ALL=(ALL) NOPASSWD:ALL"
     - name: install haproxy
       ansible.builtin.apt:
         name: haproxy
