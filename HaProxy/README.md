@@ -13,7 +13,8 @@ su raj
 ```
 ![preview](Images/haproxy2.png)
 ![preview](Images/haproxy3.png)
-
+![preview](Images/haproxy4.png)
+![preview](Images/haproxy5.png)
 * The above steps are executed by the `main-server and server1, server2`
 
 # Main-server
@@ -72,5 +73,11 @@ haproxy -v
 sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.bk
 sudo nano /etc/haproxy/haproxy.cfg
 sudo systemctl restart haproxy
-```  
+```
+> Playbook for the above all manual commands[Refer Here](https://github.com/qtrajkumar/Ansible_Zone/tree/main/HaProxy)
 
+  
+![preview](Images/haproxy6.png)
+![preview](Images/haproxy7.png)
+![preview](Images/haproxy8.png)
+![Preview](Images/haproxy9.png)
