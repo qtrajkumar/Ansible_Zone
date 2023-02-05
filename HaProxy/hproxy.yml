@@ -1,6 +1,6 @@
 ---
 - name: install haproxy on ubuntu
-  hosts: all
+  hosts: local
   become: yes
   become_user: root
   tasks:

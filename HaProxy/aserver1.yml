@@ -1,6 +1,6 @@
 ---
 - name: installation apache2
-  hosts: all
+  hosts: ubuntu
   become: yes
   become_user: root
   tasks:
