@@ -17,10 +17,8 @@
     - name: Create new user account
       ansible.builtin.user:
         name: raj
-        password: "80967"
         state: present
         groups: sudo
-        shell: /bin/bash
     - name: Add user to sudoers
       ansible.builtin.lineinfile:
         dest: /etc/sudoers
