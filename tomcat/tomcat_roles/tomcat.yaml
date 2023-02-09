@@ -75,7 +75,7 @@
         - restart tomcat 
     - name: ensure tomcat is running
       ansible.builtin.systemd:
-        name: "{{ tomcat_service_name }}"
+        name:  
         state: started
   handlers: 
     - name: restart tomcat
