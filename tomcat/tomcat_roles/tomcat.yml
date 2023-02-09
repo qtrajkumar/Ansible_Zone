@@ -3,6 +3,6 @@
   hosts: all
   become: yes
   roles: 
-    - role: tomcat_roles
+    - role: tomcat-roles
       state: present
   
