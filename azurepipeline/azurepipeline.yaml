@@ -21,3 +21,21 @@ stages:
               testResultsFiles: '**/surefile-reports/TEST-*.xml'
               jdkVersionOption: '1.17'
             
+
+
+---
+pool:
+  name: "Azure Pipeline"
+  vmImage: "ubuntu-latest"            
+
+trigger:
+  schedules:
+    - cron: "0 21 * * 1-5"
+      always: false
+steps: 
+  task: maven@4
+  inputs: 
+    mavenPOMFile: yes
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    jdkVersionOption: '1.8'
+          
