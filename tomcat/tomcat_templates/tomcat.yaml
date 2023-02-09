@@ -68,7 +68,7 @@
         - restart tomcat  
     - name: copy the host manager app context file
       ansible.builtin.template:
-        src: context.xml.j2
+        src: context.xml
         dest: "{{ item }}"
         owner: "{{ user_name }}"
         group: "{{ group_name }}"
