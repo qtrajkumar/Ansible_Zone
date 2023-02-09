@@ -41,7 +41,7 @@
     - name: Create a systemd unit file in centos
       ansible.builtin.template:
         src: tomcat.service.j2
-        dest: /etc/systemd/system/"{{ tomcat_service_name }}"
+        dest: /etc/systemd/system/tomcat.service
         owner: "{{ user_name }}"
         group: "{{ group_name }}"
       notify:
@@ -81,7 +81,7 @@
     - name: restart tomcat
       ansible.builtin.systemd:
         name: "{{ tomcat_service_name }}"
-        state: started    
+        state: restarted    
     - name: enable and restart tomcat
       ansible.builtin.systemd:
         name: "{{ tomcat_service_name }}"
