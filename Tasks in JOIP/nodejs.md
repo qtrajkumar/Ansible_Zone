@@ -70,27 +70,7 @@ after that go to Azure Repos Git and select the js e2e-express-server
 * To change the pipeline [refer here]()
 ![Preview](Images/task15.png)
 
-```yaml
----
-pool:
-  name: "Azure Pipelines"
-  vmImage: ubuntu-latest
-
-trigger:
-  - main
-
-steps:
-  - task: NodeTool@1
-    inputs:
-      command: install nodejs
-    displayName: 'install the nodejs'  
-  - script:
-      npm install
-    displayName: 'install the npm'
-  - script:
-      npm build
-    displayName: 'Run the npm'
-```
+> [refer here](https://github.com/qtrajkumar/Ansible_Zone/blob/main/Tasks%20in%20JOIP/nodejspl.yaml) for the yaml file for nodejs
 * Finally Completed the task for our needs 
 
 ![Preview](Images/task17.png)
