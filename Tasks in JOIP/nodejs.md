@@ -50,7 +50,7 @@ steps:
       command: run build
     displayName: 'npm run build'
 ```
-Yaml file for the nodejs application [refer here](https://github.com/qtrajkumar/Ansible_Zone/blob/main/Tasks%20in%20JOIP/nodejspl.yaml)    
+> Yaml file for the nodejs application [refer here](https://github.com/qtrajkumar/Ansible_Zone/blob/main/Tasks%20in%20JOIP/nodejspl.yaml)    
 clone the code https://github.com/Azure-Samples/js-e2e-express-server
 and go to pipeline and select the new pipeline
 ![Preview](Images/task1.png)
@@ -74,6 +74,3 @@ after that go to Azure Repos Git and select the js e2e-express-server
 * Finally Completed the task for our needs 
 
 ![Preview](Images/task17.png)
-
-
-
