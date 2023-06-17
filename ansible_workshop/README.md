@@ -18,3 +18,24 @@ sudo cp gameoflife.war /var/lib/tomcat9/webapps/gameoflife.war .
 
 
 ### Activiry-2: Write a role for gameoflife
+
+### Activity-3: Integrating ansible with jenkins
+* We have pipeline
+```
+pipeline {
+    agent { label 'node1'}
+    stages {
+        steps {
+            git 
+            sh 'cd role_usage && ansible-playbook -i hosts gol.yaml'
+        }
+    }
+}
+```
+* Execute build on jenkins
+
+
+
+Terraform with Ansible
+----------------------
+
