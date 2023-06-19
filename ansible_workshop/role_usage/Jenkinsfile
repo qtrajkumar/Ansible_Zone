@@ -1,0 +1,9 @@
+pipeline {
+    agent { label 'node1'}
+    stages {
+        steps {
+            git 'https://github.com/qtrajkumar/Ansible_Zone.git'
+            sh 'cd ansible_workshop/role_usage && ansible-playbook -i hosts gol.yaml'
+        }
+    }
+}
